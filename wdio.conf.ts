@@ -75,9 +75,9 @@ export const config: Options.Testrunner = {
     capabilities: [{
         // capabilities for local browser web tests
         browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
-        // "goog:chromeOptions": {
-        //     args:["--headless", 'window-size=1920,1080']
-        // },
+        "goog:chromeOptions": {
+            args:["--headless", 'window-size=1920,1080']
+        },
     }],
     //
     // ===================
