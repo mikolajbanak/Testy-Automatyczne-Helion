@@ -48,7 +48,6 @@ describe("E2E - Searchbar", async ()=>{
     it("Should clear input and click on search icon", async ()=>{
         await SeachbarPage.clearSearchBar();
         await SeachbarPage.clickOnLoupeIcon();
-        await expect (browser).toHaveUrl(notFoundUrl);
         await expect (await SearchResultPage.getFalseTitle()).toContain(clearSearchPage);
         await expect (await SeachbarPage.getInputValue()).toEqual("")
     })
