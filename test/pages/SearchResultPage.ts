@@ -8,6 +8,10 @@ class SearchResultPage {
         return $("div.not-found")
     }
 
+    get addToCartButton(){
+        return $("#tefust")
+    }
+
     get booksItem(){
         return $$("ul.list > li ");
     }
@@ -37,6 +41,11 @@ class SearchResultPage {
     async getAllBooks():Promise<number>{
         const allBooks:WebdriverIO.ElementArray = await this.booksItem;
         return await allBooks.length;
+    }
+
+    async addToCart(){
+        const addToCart: WebdriverIO.Element = await  this.addToCartButton
+        await addToCart.click();
     }
 }
 

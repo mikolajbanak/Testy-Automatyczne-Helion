@@ -1,7 +1,7 @@
 import GlobalPage from "../../pages/GlobalPage"
 import SeachbarPage from "../../pages/components/SeachbarPage";
 import SearchResultPage from "../../pages/SearchResultPage";
-import {helionHomeUrl, notFoundUrl, searchPageUrl} from "../../config/pagesUrl";
+import {helionHomeUrl, notFoundUrl, searchPageUrl,clearSearchPage} from "../../config/pagesUrl";
 import {falseSearchPhrase, falseSearchResultTitle, searchPhrase,searchResultTitle} from "../../config/data"
 
 describe("E2E - Searchbar", async ()=>{
@@ -11,9 +11,9 @@ describe("E2E - Searchbar", async ()=>{
         await SeachbarPage.searchBarisVisible();
     })
 
-    it("Should click on loupe icon with empty searchbar and check if homepage is displayed", async () =>{
+    it("Should click on loupe icon with empty searchbar and check if search page is displayed", async () =>{
         await SeachbarPage.clickOnLoupeIcon();
-        await expect (browser).toHaveUrl(helionHomeUrl);
+        await expect (browser).toHaveUrl(clearSearchPage);
     })
 
     it("Should type SearchValue and verify visible popup", async () =>{
@@ -49,7 +49,7 @@ describe("E2E - Searchbar", async ()=>{
         await SeachbarPage.clearSearchBar();
         await SeachbarPage.clickOnLoupeIcon();
         await expect (browser).toHaveUrl(notFoundUrl);
-        await expect (await SearchResultPage.getFalseTitle()).toContain(falseSearchResultTitle);
-        await expect (await SeachbarPage.getInputValue()).toEqual(falseSearchPhrase)
+        await expect (await SearchResultPage.getFalseTitle()).toContain(clearSearchPage);
+        await expect (await SeachbarPage.getInputValue()).toEqual("")
     })
 })

@@ -40,5 +40,4 @@ describe("E2E Products", ()=>{
         await browser.acceptAlert();
         await expect (await CartPage.getEmptyCartMessage()).toEqual(emptyCartMessage)
     })
-
 })

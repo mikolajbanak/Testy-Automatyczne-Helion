@@ -39,5 +39,4 @@ class ProductPage{
         await cart.click();
     }
 }
-
 export default new ProductPage
